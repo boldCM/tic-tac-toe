@@ -1,13 +1,21 @@
 import "./board.css";
-import React from "react";
+import React, { useState } from "react";
 import Square from "./Square";
 
 export default function Board() {
-  function renderSquare(index) {
-    return <Square value={index} />;
+  const [squares, setSquares] = useState(Array(9).fill(null));
+
+  function handeClick(index) {
+    const newSquares = squares.slice();
+    newSquares[index] = "😎";
+    setSquares(newSquares);
   }
 
-  const status = "Next player: X";
+  function renderSquare(index) {
+    return <Square value={squares[index]} onClick={() => handeClick(index)} />;
+  }
+
+  const status = "Next player: 😎";
 
   return (
     <div>
