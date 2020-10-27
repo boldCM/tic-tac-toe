@@ -4,18 +4,20 @@ import Square from "./Square";
 
 export default function Board() {
   const [squares, setSquares] = useState(Array(9).fill(null));
+  const [xIsNext, setXIsNext] = useState(true);
 
   function handeClick(index) {
     const newSquares = squares.slice();
-    newSquares[index] = "😎";
+    newSquares[index] = xIsNext ? "😎" : "🧐";
     setSquares(newSquares);
+    setXIsNext(!xIsNext);
   }
 
   function renderSquare(index) {
     return <Square value={squares[index]} onClick={() => handeClick(index)} />;
   }
 
-  const status = "Next player: 😎";
+  const status = "Next player: " + (xIsNext ? "😎" : "🧐");
 
   return (
     <div>
