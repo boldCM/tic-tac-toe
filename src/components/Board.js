@@ -27,7 +27,7 @@ export default function Board() {
   } else {
     status = "Next player: " + (xIsNext ? "😎" : "🧐");
   }
-  // const status = "Next player: " + (xIsNext ? "😎" : "🧐");
+
   return (
     <div>
       <div className="status">{status}</div>
